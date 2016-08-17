@@ -32,7 +32,7 @@ class Portfolio_Post_Type_Registrations {
 	 * Initiate registrations of post type and taxonomies.
 	 */
 	public function register() {
-		global $portfolio_post_type_post_type, $portfolio_post_type_taxonomy_category, $portfolio_post_type_taxonomy_tag;
+		global $portfolio_post_type_post_type, $service_post_type_post_type, $portfolio_post_type_taxonomy_category, $portfolio_post_type_taxonomy_tag;
 
 		$portfolio_post_type_post_type = new Portfolio_Post_Type_Post_Type;
 		$portfolio_post_type_post_type->register();
@@ -53,13 +53,16 @@ class Portfolio_Post_Type_Registrations {
 			$portfolio_post_type_taxonomy_tag->get_taxonomy(),
 			$portfolio_post_type_post_type->get_post_type()
 		);
+		$service_post_type_post_type = new Service_Post_Type_Post_Type;
+		$service_post_type_post_type->register();
+		$this->post_type = $service_post_type_post_type->get_post_type();
 	}
 
 	/**
 	 * Unregister post type and taxonomies registrations.
 	 */
 	public function unregister() {
-		global $portfolio_post_type_post_type, $portfolio_post_type_taxonomy_category, $portfolio_post_type_taxonomy_tag;
+		global $portfolio_post_type_post_type, $service_post_type_post_type, $portfolio_post_type_taxonomy_category, $portfolio_post_type_taxonomy_tag;
 		$portfolio_post_type_post_type->unregister();
 		$this->post_type = null;
 

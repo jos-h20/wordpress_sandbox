@@ -36,6 +36,8 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-portfolio-post-type-taxono
 require plugin_dir_path( __FILE__ ) . 'includes/class-portfolio-post-type-taxonomy-tag.php';
 require plugin_dir_path( __FILE__ ) . 'includes/class-portfolio-post-type-registrations.php';
 
+//Required for service post type
+require plugin_dir_path( __FILE__ ) . 'includes/class-service-post-type-post-type.php';
 // Instantiate registration class, so we can add it as a dependency to main plugin class.
 $portfolio_post_type_registrations = new Portfolio_Post_Type_Registrations;
 
